@@ -1,0 +1,3469 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>일본어 스피킹 문법블록</title>
+<style>
+:root{
+  --ink:#2b2530; --sub:#8a7f8c; --line:#f0dfe8; --bg:#fdf6fa; --card:#fff;
+  --done:#c2668f; --done-bg:#fbeef3; --done-line:#eac3d5;
+  --hl:#8570c4; --hl-bg:#f1eefa; --hl-line:#d8d0ee;
+  --chip-on:#c2668f;
+  --confuse:#e0873f; --confuse-bg:#fff3e6; --confuse-line:#f6cfa0;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;}
+header{position:sticky;top:0;z-index:20;background:var(--bg);
+  border-bottom:1px solid var(--line);padding:10px 12px 8px;}
+.headerInner{max-width:1000px;margin:0 auto;}
+h1{font-size:15px;margin:0 0 8px;font-weight:800;color:#c9457e;}
+h1 small{color:var(--sub);font-weight:600;}
+.searchrow{display:flex;gap:6px;}
+#q{flex:1;padding:11px 13px;font-size:16px;border:1.5px solid var(--line);
+  border-radius:12px;background:var(--card);outline:none;color:var(--ink);}
+#q:focus{border-color:var(--hl);}
+.toolrow{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap;}
+#exportBtn,#importBtn,#resetBtn{flex:1 1 100px;min-width:0;padding:9px 6px;border-radius:12px;border:1.5px solid;
+  font-size:12.5px;font-weight:700;background:var(--card);white-space:nowrap;}
+#exportBtn{color:#7a5c9e;border-color:#d8c7ec;background:#f8f5fc;}
+#importBtn{color:#7a5c9e;border-color:#d8c7ec;background:#f8f5fc;}
+#resetBtn{color:#d1467f;border-color:#f0b7c8;background:#fdf3f7;flex:0 0 auto;padding:9px 14px;}
+.rowlabel{font-size:10.5px;color:var(--sub);font-weight:800;margin:8px 0 3px 2px;}
+.filters{display:flex;gap:6px;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none;}
+.filters::-webkit-scrollbar{display:none;}
+.chip{flex:0 0 auto;padding:7px 12px;border-radius:999px;border:1.2px solid var(--line);
+  background:var(--card);font-size:12.5px;font-weight:700;color:var(--sub);white-space:nowrap;}
+.chip.on{background:var(--chip-on);color:#fff;border-color:var(--chip-on);}
+.chip.hlchip.on{background:var(--hl);border-color:var(--hl);}
+.chip .n{opacity:.75;font-weight:600;margin-left:3px;}
+.progwrap{padding:8px 2px 0;}
+.progtext{font-size:12px;color:var(--sub);display:flex;justify-content:space-between;margin-bottom:4px;}
+.progbar{height:7px;background:#ffe4ee;border-radius:5px;overflow:hidden;}
+.progfill{height:100%;background:linear-gradient(90deg,#c2668f,#b98a9e);width:0%;transition:width .25s;}
+main{padding:8px 10px 90px;max-width:1000px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:1fr;gap:9px;}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1020px){.grid{grid-template-columns:1fr 1fr 1fr;}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:12px 13px;position:relative;}
+.card.done{background:var(--done-bg);border-color:var(--done-line);}
+.card.hl{border-color:var(--hl);box-shadow:0 0 0 1.5px var(--hl) inset;background:var(--hl-bg);}
+.card.done.hl{background:linear-gradient(135deg,var(--hl-bg),var(--done-bg));}
+.rank{position:absolute;top:8px;right:10px;font-size:10.5px;color:var(--sub);font-weight:700;}
+.part-tag{display:inline-block;font-size:9.5px;font-weight:800;color:#a15c8c;
+  background:#ffe9f2;border-radius:6px;padding:1.5px 6px;margin-bottom:5px;}
+.kr{font-size:22px;font-weight:900;line-height:1.25;margin-right:6px;color:#3a2e3e;}
+.ro{font-size:12.5px;color:var(--sub);font-style:italic;}
+.mean{margin-top:4px;font-size:14.5px;color:#4a3f47;}
+.attach{margin-top:4px;font-size:12px;color:#7a5c9e;background:#f8f5fc;
+  border-radius:8px;padding:3px 8px;display:inline-block;font-weight:700;}
+.ex{margin-top:6px;font-size:12.8px;color:#8c7d92;line-height:1.9;
+  border-left:2.5px solid var(--hl-line);padding-left:7px;}
+.confuse{margin-top:6px;font-size:12.3px;color:#b5651d;line-height:1.5;
+  border-left:2.5px solid var(--confuse-line);background:var(--confuse-bg);
+  padding:5px 7px;border-radius:0 8px 8px 0;}
+.metarow{margin-top:8px;display:flex;gap:5px;flex-wrap:wrap;}
+.meta{font-size:10.5px;color:var(--sub);background:#f5f2f6;border-radius:6px;
+  padding:2px 7px;font-weight:700;}
+.meta.level{color:#c2668f;background:#fbeef3;}
+.btnrow{display:flex;gap:6px;margin-top:9px;}
+.abtn{flex:1;padding:7px 0;border-radius:10px;border:1.2px solid var(--line);
+  background:#fff;font-size:12.5px;font-weight:700;color:var(--sub);}
+.abtn.done-on{background:var(--done);border-color:var(--done);color:#fff;}
+.abtn.hl-on{background:var(--hl);border-color:var(--hl);color:#fff;}
+.empty{text-align:center;color:var(--sub);padding:40px 0;font-size:14px;}
+.pager{display:flex;justify-content:center;align-items:center;gap:10px;padding:16px 0 6px;flex-wrap:wrap;}
+.pgbtn{padding:8px 14px;border-radius:10px;border:1.2px solid var(--line);
+  background:#fff;font-size:13px;font-weight:700;color:var(--ink);}
+.pgbtn:disabled{opacity:.35;}
+.pgbtn.on{background:var(--chip-on);color:#fff;border-color:var(--chip-on);}
+#pageInfo{font-size:12.5px;color:var(--sub);}
+footer{text-align:center;padding:10px;font-size:11px;color:var(--sub);}
+</style>
+<script>
+window.GRAMMAR_DATA = [
+ {
+  "id": 1,
+  "kr": "기본형",
+  "ro": "예시 15개",
+  "mean": "~하다/사전형",
+  "part": "동사 기본 뼈대",
+  "attach": "동사 원형",
+  "ex": "타베루 (taberu) = 먹다<br>노무 (nomu) = 마시다<br>이쿠 (iku) = 가다<br>쿠루 (kuru) = 오다<br>미루 (miru) = 보다<br>키쿠 (kiku) = 듣다/묻다<br>스루 (suru) = 하다<br>카우 (kau) = 사다<br>아우 (au) = 만나다<br>요무 (yomu) = 읽다<br>카쿠 (kaku) = 쓰다<br>마츠 (matsu) = 기다리다<br>츠카우 (tsukau) = 사용하다<br>츠쿠루 (tsukuru) = 만들다<br>오모우 (omou) = 생각하다",
+  "confuse": "원형은 미래·습관·사전형으로도 쓰임",
+  "scene": "단어를 문장 재료로 꺼낼 때",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 2,
+  "kr": "나이형",
+  "ro": "예시 15개",
+  "mean": "~하지 않다",
+  "part": "동사 기본 뼈대",
+  "attach": "동사 부정형",
+  "ex": "타베나이 (tabenai) = 먹지 않는다<br>노마나이 (nomanai) = 마시지 않는다<br>이카나이 (ikanai) = 가지 않는다<br>코나이 (konai) = 오지 않는다<br>미나이 (minai) = 보지 않는다<br>키카나이 (kikanai) = 듣지/묻지 않는다<br>시나이 (shinai) = 하지 않는다<br>카와나이 (kawanai) = 사지 않는다<br>아와나이 (awanai) = 만나지 않는다<br>요마나이 (yomanai) = 읽지 않는다<br>카카나이 (kakanai) = 쓰지 않는다<br>마타나이 (matanai) = 기다리지 않는다<br>츠카와나이 (tsukawanai) = 사용하지 않는다<br>츠쿠라나이 (tsukuranai) = 만들지 않는다<br>오모와나이 (omowanai) = 생각하지 않는다",
+  "confuse": "아리마센/이나이/나이와 섞여 헷갈림",
+  "scene": "안 한다고 선 긋기",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 3,
+  "kr": "타형",
+  "ro": "예시 15개",
+  "mean": "~했다",
+  "part": "동사 기본 뼈대",
+  "attach": "동사 과거형",
+  "ex": "타베타 (tabeta) = 먹었다<br>논다 (nonda) = 마셨다<br>잇타 (itta) = 갔다<br>키타 (kita) = 왔다<br>미타 (mita) = 봤다<br>키이타 (kiita) = 들었다/물었다<br>시타 (shita) = 했다<br>캇타 (katta) = 샀다<br>앗타 (atta) = 만났다<br>욘다 (yonda) = 읽었다<br>카이타 (kaita) = 썼다<br>맛타 (matta) = 기다렸다<br>츠캇타 (tsukatta) = 사용했다<br>츠쿳타 (tsukutta) = 만들었다<br>오못타 (omotta) = 생각했다",
+  "confuse": "타/다/잇타처럼 소리가 바뀜",
+  "scene": "경험·후기 말하기",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 4,
+  "kr": "테형",
+  "ro": "예시 15개",
+  "mean": "~하고/~해서",
+  "part": "동사 기본 뼈대",
+  "attach": "동사 연결형",
+  "ex": "타베테 (tabete) = 먹고/먹어서<br>논데 (nonde) = 마시고/마셔서<br>잇테 (itte) = 가고/가서<br>키테 (kite) = 오고/와서<br>미테 (mite) = 보고/봐서<br>키이테 (kiite) = 듣고/물어봐서<br>시테 (shite) = 하고/해서<br>캇테 (katte) = 사고/사서<br>앗테 (atte) = 만나고/만나서<br>욘데 (yonde) = 읽고/읽어서<br>카이테 (kaite) = 쓰고/써서<br>맛테 (matte) = 기다리고/기다려서<br>츠캇테 (tsukatte) = 사용하고/사용해서<br>츠쿳테 (tsukutte) = 만들고/만들어서<br>오못테 (omotte) = 생각하고/생각해서",
+  "confuse": "테형 하나가 요청·진행·경험·연결의 기반",
+  "scene": "말 이어붙이기",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 5,
+  "kr": "테 쿠다사이",
+  "ro": "te kudasai",
+  "mean": "~해 주세요",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 쿠다사이",
+  "ex": "미테 쿠다사이 (mite kudasai) = 봐 주세요",
+  "confuse": "부탁인지 명령인지 톤 조절 필요",
+  "scene": "업무·여행에서 요청",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 6,
+  "kr": "테 미테",
+  "ro": "te mite",
+  "mean": "~해 봐",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 미테",
+  "ex": "타베테 미테 (tabete mite) = 먹어 봐",
+  "confuse": "미루가 붙으면 시도 의미",
+  "scene": "추천·실험 제안",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 7,
+  "kr": "테 미테 쿠다사이",
+  "ro": "te mite kudasai",
+  "mean": "~해 보세요",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 미테 + 쿠다사이",
+  "ex": "칸지테 미테 쿠다사이 (kanjite mite kudasai) = 느껴 보세요",
+  "confuse": "정중한 실험 요청",
+  "scene": "콘텐츠 CTA",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 8,
+  "kr": "테 모 이이",
+  "ro": "te mo ii",
+  "mean": "~해도 돼",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 모 + 이이",
+  "ex": "잇테모 이이 (itte mo ii) = 가도 돼",
+  "confuse": "허락 표현, 시테모와 연결",
+  "scene": "허락·선택지",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 9,
+  "kr": "테 와 이케나이",
+  "ro": "te wa ikenai",
+  "mean": "~하면 안 된다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 와 + 이케나이",
+  "ex": "노메테와 이케나이 (nomete wa ikenai) = 마시면 안 된다",
+  "confuse": "금지 표현, 강도 높음",
+  "scene": "규칙 설명",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 10,
+  "kr": "테 이루",
+  "ro": "te iru",
+  "mean": "~하고 있다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 이루",
+  "ex": "마테 이루 (matte iru) = 기다리고 있다",
+  "confuse": "상태/진행 둘 다 가능",
+  "scene": "현재 상태 말하기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 11,
+  "kr": "테 이마스",
+  "ro": "te imasu",
+  "mean": "~하고 있습니다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 이마스",
+  "ex": "츠쿳테 이마스 (tsukutte imasu) = 만들고 있습니다",
+  "confuse": "정중체 진행형",
+  "scene": "업무 진행 공유",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 12,
+  "kr": "테 아루",
+  "ro": "te aru",
+  "mean": "~해 두어져 있다",
+  "part": "테형·연결 블록",
+  "attach": "타동사 테형 + 아루",
+  "ex": "카이테 아루 (kaite aru) = 써 있다",
+  "confuse": "누가 해둔 결과 상태",
+  "scene": "준비된 상태 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 13,
+  "kr": "테 오쿠",
+  "ro": "te oku",
+  "mean": "~해 두다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 오쿠",
+  "ex": "욘데 오쿠 (yonde oku) = 읽어 두다",
+  "confuse": "준비·저장 느낌",
+  "scene": "복귀 전 준비",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 14,
+  "kr": "테 시마우",
+  "ro": "te shimau",
+  "mean": "~해 버리다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 시마우",
+  "ex": "타베테 시마우 (tabete shimau) = 먹어 버리다",
+  "confuse": "후회/완료 뉘앙스",
+  "scene": "폭식·실수 표현",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 15,
+  "kr": "테 카라",
+  "ro": "te kara",
+  "mean": "~하고 나서",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 카라",
+  "ex": "탓테 카라 (tatte kara) = 먹고 나서",
+  "confuse": "순서 강조",
+  "scene": "루틴 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 16,
+  "kr": "테모",
+  "ro": "te mo",
+  "mean": "~해도",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 모",
+  "ex": "키타이 시테모 (kitai shite mo) = 기대해도",
+  "confuse": "양보 조건",
+  "scene": "감정 말하기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 17,
+  "kr": "테쿠레루",
+  "ro": "te kureru",
+  "mean": "~해 주다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 쿠레루",
+  "ex": "타스케테 쿠레루 (tasukete kureru) = 도와주다",
+  "confuse": "내가 받은 호의",
+  "scene": "관계·감사",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 18,
+  "kr": "테아게루",
+  "ro": "te ageru",
+  "mean": "~해 주다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 아게루",
+  "ex": "오시에테 아게루 (oshiete ageru) = 알려 주다",
+  "confuse": "내가 남에게 해줌",
+  "scene": "콘텐츠 교육",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 19,
+  "kr": "테모라우",
+  "ro": "te morau",
+  "mean": "~해 받다",
+  "part": "테형·연결 블록",
+  "attach": "테형 + 모라우",
+  "ex": "미테 모라우 (mite morau) = 봐 받다/봐 주게 하다",
+  "confuse": "상대에게 받는 도움",
+  "scene": "피드백 요청",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 20,
+  "kr": "나가라",
+  "ro": "nagara",
+  "mean": "~하면서",
+  "part": "테형·연결 블록",
+  "attach": "마스형 어간 + 나가라",
+  "ex": "노미나가라 (nominagara) = 마시면서",
+  "confuse": "동시 행동",
+  "scene": "카페·공부 루틴",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 21,
+  "kr": "스기루",
+  "ro": "sugiru",
+  "mean": "너무 ~하다",
+  "part": "테형·연결 블록",
+  "attach": "어간/형용사 + 스기루",
+  "ex": "타베스기루 (tabesugiru) = 너무 많이 먹다",
+  "confuse": "과함 표현",
+  "scene": "다이어트·감정",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 22,
+  "kr": "야스이",
+  "ro": "yasui",
+  "mean": "~하기 쉽다",
+  "part": "테형·연결 블록",
+  "attach": "마스형 어간 + 야스이",
+  "ex": "와카리야스이 (wakariyasui) = 이해하기 쉽다",
+  "confuse": "형용사처럼 씀",
+  "scene": "설명 평가",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 23,
+  "kr": "니쿠이",
+  "ro": "nikui",
+  "mean": "~하기 어렵다",
+  "part": "테형·연결 블록",
+  "attach": "마스형 어간 + 니쿠이",
+  "ex": "와카리니쿠이 (wakarinikui) = 이해하기 어렵다",
+  "confuse": "쿠이/즈라이와 유사",
+  "scene": "UX·콘텐츠 평가",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 24,
+  "kr": "즈라이",
+  "ro": "zurai",
+  "mean": "~하기 힘들다",
+  "part": "테형·연결 블록",
+  "attach": "마스형 어간 + 즈라이",
+  "ex": "이이즈라이 (iizurai) = 말하기 힘들다",
+  "confuse": "심리적 어려움",
+  "scene": "관계·보고",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 25,
+  "kr": "타이",
+  "ro": "tai",
+  "mean": "~하고 싶다",
+  "part": "욕구·가능·의무",
+  "attach": "마스형 어간 + 타이",
+  "ex": "이키타이 (ikitai) = 가고 싶다",
+  "confuse": "호시이와 구별: 동사는 타이",
+  "scene": "욕망·목표",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 26,
+  "kr": "타쿠 나이",
+  "ro": "taku nai",
+  "mean": "~하고 싶지 않다",
+  "part": "욕구·가능·의무",
+  "attach": "타이 → 타쿠 나이",
+  "ex": "이키타쿠 나이 (ikitaku nai) = 가고 싶지 않다",
+  "confuse": "타이의 부정",
+  "scene": "거절·피로",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 27,
+  "kr": "호시이",
+  "ro": "hoshii",
+  "mean": "갖고 싶다/원하다",
+  "part": "욕구·가능·의무",
+  "attach": "명사 + 가 + 호시이",
+  "ex": "지칸가 호시이 (jikan ga hoshii) = 시간이 필요하다/갖고 싶다",
+  "confuse": "동작 원함은 타이",
+  "scene": "욕망 표현",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 28,
+  "kr": "데키루",
+  "ro": "dekiru",
+  "mean": "할 수 있다",
+  "part": "욕구·가능·의무",
+  "attach": "명사/동사 가능형",
+  "ex": "니혼고가 데키루 (nihongo ga dekiru) = 일본어를 할 수 있다",
+  "confuse": "가능형과 기본 가능 표현",
+  "scene": "자기소개",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 29,
+  "kr": "라레루",
+  "ro": "rareru",
+  "mean": "~할 수 있다",
+  "part": "욕구·가능·의무",
+  "attach": "이치단 가능형",
+  "ex": "미라레루 (mirareru) = 볼 수 있다",
+  "confuse": "수동형과 소리 겹침",
+  "scene": "가능 말하기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 30,
+  "kr": "에루",
+  "ro": "eru",
+  "mean": "~할 수 있다",
+  "part": "욕구·가능·의무",
+  "attach": "고단 가능형",
+  "ex": "이케루 (ikeru) = 갈 수 있다",
+  "confuse": "이쿠→이케루처럼 변함",
+  "scene": "가능 여부",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 31,
+  "kr": "나케레바 나라나이",
+  "ro": "nakereba naranai",
+  "mean": "~해야 한다",
+  "part": "욕구·가능·의무",
+  "attach": "나이형 변형 + 나라나이",
+  "ex": "이카나케레바 나라나이 (ikanakereba naranai) = 가야 한다",
+  "confuse": "길지만 의무 핵심",
+  "scene": "업무 의무",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 32,
+  "kr": "나캬",
+  "ro": "nakya",
+  "mean": "~해야지",
+  "part": "욕구·가능·의무",
+  "attach": "나케레바의 축약",
+  "ex": "야라나캬 (yaranakya) = 해야지",
+  "confuse": "캐주얼 축약",
+  "scene": "혼잣말·루틴",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 33,
+  "kr": "나쿠테모 이이",
+  "ro": "nakute mo ii",
+  "mean": "~하지 않아도 돼",
+  "part": "욕구·가능·의무",
+  "attach": "나이형 어간 + 쿠테모 이이",
+  "ex": "이카나쿠테모 이이 (ikanakute mo ii) = 안 가도 돼",
+  "confuse": "부정 허락",
+  "scene": "선택지 줄 때",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 34,
+  "kr": "나이데 쿠다사이",
+  "ro": "naide kudasai",
+  "mean": "~하지 말아 주세요",
+  "part": "욕구·가능·의무",
+  "attach": "나이형 + 데 쿠다사이",
+  "ex": "이카나이데 쿠다사이 (ikanaide kudasai) = 가지 말아 주세요",
+  "confuse": "금지보다 부드러움",
+  "scene": "요청·주의",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 35,
+  "kr": "나이 호오가 이이",
+  "ro": "nai hou ga ii",
+  "mean": "~하지 않는 게 좋다",
+  "part": "욕구·가능·의무",
+  "attach": "나이형 + 호오가 이이",
+  "ex": "노마나이 호오가 이이 (nomanai hou ga ii) = 안 마시는 게 좋다",
+  "confuse": "조언 표현",
+  "scene": "건강·다이어트",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 36,
+  "kr": "타 호오가 이이",
+  "ro": "ta hou ga ii",
+  "mean": "~하는 게 좋다",
+  "part": "욕구·가능·의무",
+  "attach": "타형 + 호오가 이이",
+  "ex": "네타 호오가 이이 (neta hou ga ii) = 자는 게 좋다",
+  "confuse": "권고 느낌",
+  "scene": "컨디션 조언",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 37,
+  "kr": "마쇼오",
+  "ro": "mashou",
+  "mean": "~합시다",
+  "part": "욕구·가능·의무",
+  "attach": "마스형 + 쇼오",
+  "ex": "이키마쇼오 (ikimashou) = 갑시다",
+  "confuse": "권유/의지",
+  "scene": "같이 하자",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 38,
+  "kr": "마쇼오카",
+  "ro": "mashou ka",
+  "mean": "~할까요?",
+  "part": "욕구·가능·의무",
+  "attach": "마스형 + 쇼오카",
+  "ex": "테츠다이마쇼오카 (tetsudaimashou ka) = 도와드릴까요?",
+  "confuse": "제안형 질문",
+  "scene": "서비스/업무",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 39,
+  "kr": "요오",
+  "ro": "you",
+  "mean": "~하자",
+  "part": "욕구·가능·의무",
+  "attach": "의지형",
+  "ex": "이코오 (ikou) = 가자",
+  "confuse": "마쇼오보다 캐주얼",
+  "scene": "친구와 약속",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 40,
+  "kr": "사세루",
+  "ro": "saseru",
+  "mean": "~하게 하다",
+  "part": "욕구·가능·의무",
+  "attach": "사역형",
+  "ex": "야라세루 (yaraseru) = 하게 하다",
+  "confuse": "시키다/허락하다 둘 다",
+  "scene": "조직·리더십",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 41,
+  "kr": "사세테 쿠다사이",
+  "ro": "sasete kudasai",
+  "mean": "~하게 해 주세요",
+  "part": "욕구·가능·의무",
+  "attach": "사역형 + 쿠다사이",
+  "ex": "세츠메이 사세테 쿠다사이 (setsumei sasete kudasai) = 설명하게 해 주세요",
+  "confuse": "허락 요청",
+  "scene": "미팅 발언권",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 42,
+  "kr": "사레루",
+  "ro": "sareru",
+  "mean": "~당하다/~되다",
+  "part": "욕구·가능·의무",
+  "attach": "수동형",
+  "ex": "이와레루 (iwareru) = 듣다/말해지다",
+  "confuse": "존경형과 겹침",
+  "scene": "평판·피드백",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 43,
+  "kr": "바 요캇타",
+  "ro": "ba yokatta",
+  "mean": "~했으면 좋았을 텐데",
+  "part": "욕구·가능·의무",
+  "attach": "조건형 + 요캇타",
+  "ex": "이케바 요캇타 (ikeba yokatta) = 갔으면 좋았을 텐데",
+  "confuse": "후회 패턴",
+  "scene": "회고·아쉬움",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 44,
+  "kr": "카타",
+  "ro": "kata",
+  "mean": "~하는 법",
+  "part": "욕구·가능·의무",
+  "attach": "마스형 어간 + 카타",
+  "ex": "츠카이카타 (tsukaikata) = 사용법",
+  "confuse": "명사화 핵심",
+  "scene": "툴 사용법",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 45,
+  "kr": "카라",
+  "ro": "kara",
+  "mean": "~라서/~니까",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 + 카라",
+  "ex": "츠카레타카라 (tsukareta kara) = 피곤해서",
+  "confuse": "주관적 이유 느낌",
+  "scene": "감정 이유",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 46,
+  "kr": "노데",
+  "ro": "node",
+  "mean": "~이므로/~라서",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 + 노데",
+  "ex": "이소가시이노데 (isogashii node) = 바쁘므로",
+  "confuse": "카라보다 부드럽고 정중",
+  "scene": "업무 사유",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 47,
+  "kr": "다카라",
+  "ro": "dakara",
+  "mean": "그러니까",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 앞/뒤",
+  "ex": "다카라 무리 (dakara muri) = 그러니까 무리",
+  "confuse": "결론 밀어붙임 느낌",
+  "scene": "논리 정리",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 48,
+  "kr": "나노데",
+  "ro": "nanode",
+  "mean": "그래서/이므로",
+  "part": "이유·연결·말 잇기",
+  "attach": "명사·나형용사 + 나노데",
+  "ex": "다이지나노데 (daiji nanode) = 중요하므로",
+  "confuse": "나가 붙는 지점 헷갈림",
+  "scene": "설명·보고",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 49,
+  "kr": "타메니",
+  "ro": "tame ni",
+  "mean": "~하기 위해서",
+  "part": "이유·연결·말 잇기",
+  "attach": "동사 기본형 + 타메니",
+  "ex": "마나부 타메니 (manabu tame ni) = 배우기 위해서",
+  "confuse": "요오니와 목적/방식 차이",
+  "scene": "목표 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 50,
+  "kr": "요오니",
+  "ro": "you ni",
+  "mean": "~하도록/~처럼",
+  "part": "이유·연결·말 잇기",
+  "attach": "동사 기본형/나이형 + 요오니",
+  "ex": "와스레나이 요오니 (wasurenai you ni) = 잊지 않도록",
+  "confuse": "목적보다 상태 도달",
+  "scene": "루틴·다짐",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 51,
+  "kr": "노니",
+  "ro": "noni",
+  "mean": "~인데도",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 + 노니",
+  "ex": "간밧타노니 (ganbatta noni) = 열심히 했는데도",
+  "confuse": "불만·아쉬움",
+  "scene": "감정 표현",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 52,
+  "kr": "케도",
+  "ro": "kedo",
+  "mean": "~인데/~지만",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 + 케도",
+  "ex": "이이케도 (ii kedo) = 좋긴 한데",
+  "confuse": "말끝 완충에도 씀",
+  "scene": "부드러운 반대",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 53,
+  "kr": "가",
+  "ro": "ga",
+  "mean": "~지만",
+  "part": "이유·연결·말 잇기",
+  "attach": "정중 문장 연결",
+  "ex": "스미마센가 (sumimasen ga) = 죄송하지만",
+  "confuse": "케도보다 정중",
+  "scene": "요청 전 쿠션",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 54,
+  "kr": "소레데",
+  "ro": "sore de",
+  "mean": "그래서/그러고 나서",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 연결",
+  "ex": "소레데 도오시타 (sore de doushita) = 그래서 어떻게 됐어?",
+  "confuse": "순서·결과 연결",
+  "scene": "썰 이어가기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 55,
+  "kr": "소레카라",
+  "ro": "sore kara",
+  "mean": "그리고 그다음",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 연결",
+  "ex": "소레카라 카페 (sore kara kafe) = 그리고 카페",
+  "confuse": "단순 순서",
+  "scene": "하루 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 56,
+  "kr": "소레니",
+  "ro": "sore ni",
+  "mean": "게다가",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 연결",
+  "ex": "소레니 야스이 (sore ni yasui) = 게다가 싸다",
+  "confuse": "추가 근거",
+  "scene": "구매·비교",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 57,
+  "kr": "소레데모",
+  "ro": "sore demo",
+  "mean": "그래도",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 연결",
+  "ex": "소레데모 야루 (sore demo yaru) = 그래도 한다",
+  "confuse": "역접 의지",
+  "scene": "자기계발",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 58,
+  "kr": "토니카쿠",
+  "ro": "tonikaku",
+  "mean": "어쨌든",
+  "part": "이유·연결·말 잇기",
+  "attach": "단독 부사",
+  "ex": "토니카쿠 하지메루 (tonikaku hajimeru) = 어쨌든 시작한다",
+  "confuse": "말문 재시동",
+  "scene": "실행 전환",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 59,
+  "kr": "난테 이에바",
+  "ro": "nante ieba",
+  "mean": "뭐라고 할까",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 앞",
+  "ex": "난테 이에바 이이 (nante ieba ii) = 뭐라고 하면 좋지",
+  "confuse": "말 찾기",
+  "scene": "스피킹 막힘",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 60,
+  "kr": "소오 이에바",
+  "ro": "sou ieba",
+  "mean": "그러고 보니",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 앞",
+  "ex": "소오 이에바 아시타 (sou ieba ashita) = 그러고 보니 내일",
+  "confuse": "화제 전환",
+  "scene": "대화 연결",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 61,
+  "kr": "치나미니",
+  "ro": "chinami ni",
+  "mean": "참고로",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 앞",
+  "ex": "치나미니 와타시와 (chinami ni watashi wa) = 참고로 나는",
+  "confuse": "정보 추가",
+  "scene": "설명·콘텐츠",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 62,
+  "kr": "즛토",
+  "ro": "zutto",
+  "mean": "쭉/계속",
+  "part": "이유·연결·말 잇기",
+  "attach": "부사",
+  "ex": "즛토 마에카라 (zutto mae kara) = 오래전부터",
+  "confuse": "계속성 강조",
+  "scene": "장기 목표",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 63,
+  "kr": "마아마아",
+  "ro": "maa maa",
+  "mean": "그럭저럭",
+  "part": "이유·연결·말 잇기",
+  "attach": "단독",
+  "ex": "마아마아 이이 (maa maa ii) = 그럭저럭 좋아",
+  "confuse": "애매한 평가",
+  "scene": "후기·리뷰",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 64,
+  "kr": "잇탄",
+  "ro": "ittan",
+  "mean": "일단",
+  "part": "이유·연결·말 잇기",
+  "attach": "문장 앞",
+  "ex": "잇탄 야메루 (ittan yameru) = 일단 멈춘다",
+  "confuse": "임시 결정",
+  "scene": "업무 판단",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 65,
+  "kr": "타라",
+  "ro": "tara",
+  "mean": "~하면/~했더니",
+  "part": "조건·시간·범위",
+  "attach": "타형 + 라",
+  "ex": "츠이타라 (tsuitara) = 도착하면",
+  "confuse": "조건/발견 둘 다",
+  "scene": "일정·계획",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 66,
+  "kr": "나라",
+  "ro": "nara",
+  "mean": "~라면",
+  "part": "조건·시간·범위",
+  "attach": "명사/문장 + 나라",
+  "ex": "다온나라 (daon nara) = 다온이라면",
+  "confuse": "화제 조건",
+  "scene": "조언·비교",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 67,
+  "kr": "토",
+  "ro": "to",
+  "mean": "~하면 반드시",
+  "part": "조건·시간·범위",
+  "attach": "문장 + 토",
+  "ex": "오스토 히라쿠 (osu to hiraku) = 누르면 열린다",
+  "confuse": "자동 결과",
+  "scene": "사용법 설명",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 68,
+  "kr": "바",
+  "ro": "ba",
+  "mean": "~하면",
+  "part": "조건·시간·범위",
+  "attach": "조건형",
+  "ex": "요케레바 (yokereba) = 괜찮으면",
+  "confuse": "조금 문어적/정중",
+  "scene": "제안·상담",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 69,
+  "kr": "모시",
+  "ro": "moshi",
+  "mean": "만약",
+  "part": "조건·시간·범위",
+  "attach": "조건문 앞",
+  "ex": "모시 히마나라 (moshi hima nara) = 만약 한가하면",
+  "confuse": "나라/타라와 같이 씀",
+  "scene": "약속 잡기",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 70,
+  "kr": "토키",
+  "ro": "toki",
+  "mean": "~할 때",
+  "part": "조건·시간·범위",
+  "attach": "동사/명사 + 토키",
+  "ex": "네무이 토키 (nemui toki) = 졸릴 때",
+  "confuse": "때/상황 명사화",
+  "scene": "상태 설명",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 71,
+  "kr": "마에니",
+  "ro": "mae ni",
+  "mean": "~하기 전에",
+  "part": "조건·시간·범위",
+  "attach": "동사 기본형 + 마에니",
+  "ex": "네루 마에니 (neru mae ni) = 자기 전에",
+  "confuse": "전/후 순서",
+  "scene": "루틴",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 72,
+  "kr": "아토데",
+  "ro": "ato de",
+  "mean": "~한 후에",
+  "part": "조건·시간·범위",
+  "attach": "타형/명사 + 아토데",
+  "ex": "타베타 아토데 (tabeta ato de) = 먹은 후에",
+  "confuse": "테카라와 유사",
+  "scene": "식후·운동",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 73,
+  "kr": "마다",
+  "ro": "mada",
+  "mean": "아직",
+  "part": "조건·시간·범위",
+  "attach": "부사",
+  "ex": "마다 데키나이 (mada dekinai) = 아직 못 한다",
+  "confuse": "모오와 반대",
+  "scene": "학습 상태",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 74,
+  "kr": "모오",
+  "ro": "mou",
+  "mean": "이미/벌써",
+  "part": "조건·시간·범위",
+  "attach": "부사",
+  "ex": "모오 오왓타 (mou owatta) = 이미 끝났다",
+  "confuse": "이제/벌써 둘 다",
+  "scene": "진행 공유",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 75,
+  "kr": "마데",
+  "ro": "made",
+  "mean": "~까지",
+  "part": "조건·시간·범위",
+  "attach": "시간/장소 + 마데",
+  "ex": "산지마데 (sanji made) = 3시까지",
+  "confuse": "마데니와 다름",
+  "scene": "마감·범위",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 76,
+  "kr": "마데니",
+  "ro": "made ni",
+  "mean": "~까지는",
+  "part": "조건·시간·범위",
+  "attach": "시간 + 마데니",
+  "ex": "아시타마데니 (ashita made ni) = 내일까지는",
+  "confuse": "데드라인 도착점",
+  "scene": "업무 마감",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 77,
+  "kr": "아이데아",
+  "ro": "aida",
+  "mean": "~하는 동안",
+  "part": "조건·시간·범위",
+  "attach": "동사/명사 + 아이다",
+  "ex": "마츠 아이다 (matsu aida) = 기다리는 동안",
+  "confuse": "나가라와 동시성 차이",
+  "scene": "대기시간 활용",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 78,
+  "kr": "타비니",
+  "ro": "tabi ni",
+  "mean": "~할 때마다",
+  "part": "조건·시간·범위",
+  "attach": "동사 + 타비니",
+  "ex": "미루 타비니 (miru tabi ni) = 볼 때마다",
+  "confuse": "반복 감정",
+  "scene": "관계·취향",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 79,
+  "kr": "카기리",
+  "ro": "kagiri",
+  "mean": "~하는 한",
+  "part": "조건·시간·범위",
+  "attach": "동사/명사 + 카기리",
+  "ex": "데키루 카기리 (dekiru kagiri) = 할 수 있는 한",
+  "confuse": "범위 제한",
+  "scene": "최선·한계",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 80,
+  "kr": "바아이",
+  "ro": "baai",
+  "mean": "~한 경우",
+  "part": "조건·시간·범위",
+  "attach": "동사/명사 + 바아이",
+  "ex": "오쿠레타 바아이 (okureta baai) = 늦은 경우",
+  "confuse": "업무 안내체",
+  "scene": "공지·규칙",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 81,
+  "kr": "토 시테",
+  "ro": "to shite",
+  "mean": "~로서",
+  "part": "조건·시간·범위",
+  "attach": "명사 + 토 시테",
+  "ex": "피오 토 시테 (PO to shite) = PO로서",
+  "confuse": "역할 표시",
+  "scene": "직업 정체성",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 82,
+  "kr": "니 츠이테",
+  "ro": "ni tsuite",
+  "mean": "~에 대해",
+  "part": "조건·시간·범위",
+  "attach": "명사 + 니 츠이테",
+  "ex": "센랴쿠니 츠이테 (senryaku ni tsuite) = 전략에 대해",
+  "confuse": "주제 표시",
+  "scene": "미팅·자료",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 83,
+  "kr": "니 칸시테",
+  "ro": "ni kanshite",
+  "mean": "~에 관해서",
+  "part": "조건·시간·범위",
+  "attach": "명사 + 니 칸시테",
+  "ex": "켄코오니 칸시테 (kenkou ni kanshite) = 건강에 관해서",
+  "confuse": "츠이테보다 딱딱",
+  "scene": "리서치·보고",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 84,
+  "kr": "토 이우",
+  "ro": "to iu",
+  "mean": "~라고 하는",
+  "part": "조건·시간·범위",
+  "attach": "말/개념 + 토 이우",
+  "ex": "데자이아 보루토 토 이우 (Desire Vault to iu) = 디자이어볼트라는",
+  "confuse": "정의·명명",
+  "scene": "브랜드 설명",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 85,
+  "kr": "요리",
+  "ro": "yori",
+  "mean": "~보다",
+  "part": "비교·정도·강조",
+  "attach": "비교 기준 + 요리",
+  "ex": "소레요리 (sore yori) = 그것보다",
+  "confuse": "기준을 뒤에 둠",
+  "scene": "비교·선택",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 86,
+  "kr": "호오가",
+  "ro": "hou ga",
+  "mean": "~쪽이",
+  "part": "비교·정도·강조",
+  "attach": "비교 대상 + 호오가",
+  "ex": "코치라노 호오가 (kochira no hou ga) = 이쪽이",
+  "confuse": "요리와 세트",
+  "scene": "선택 제안",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 87,
+  "kr": "이치반",
+  "ro": "ichiban",
+  "mean": "가장",
+  "part": "비교·정도·강조",
+  "attach": "명사/형용사 앞",
+  "ex": "이치반 다이지 (ichiban daiji) = 가장 중요",
+  "confuse": "최상급",
+  "scene": "우선순위",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 88,
+  "kr": "못토",
+  "ro": "motto",
+  "mean": "더",
+  "part": "비교·정도·강조",
+  "attach": "형용사/부사 앞",
+  "ex": "못토 칸탄니 (motto kantan ni) = 더 쉽게",
+  "confuse": "증가 방향",
+  "scene": "개선 요구",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 89,
+  "kr": "스코시",
+  "ro": "sukoshi",
+  "mean": "조금",
+  "part": "비교·정도·강조",
+  "attach": "부사",
+  "ex": "스코시 다케 (sukoshi dake) = 조금만",
+  "confuse": "양·정도 완충",
+  "scene": "부탁·거절",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 90,
+  "kr": "다케",
+  "ro": "dake",
+  "mean": "~만",
+  "part": "비교·정도·강조",
+  "attach": "명사/수량 + 다케",
+  "ex": "밋츠 다케 (mittsu dake) = 세 개만",
+  "confuse": "시카와 반대 구조",
+  "scene": "제한 말하기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 91,
+  "kr": "시카 나이",
+  "ro": "shika nai",
+  "mean": "~밖에 없다",
+  "part": "비교·정도·강조",
+  "attach": "명사 + 시카 + 부정",
+  "ex": "히토츠 시카 나이 (hitotsu shika nai) = 하나밖에 없다",
+  "confuse": "반드시 부정과 세트",
+  "scene": "부족함 표현",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 92,
+  "kr": "쿠라이",
+  "ro": "kurai",
+  "mean": "~정도",
+  "part": "비교·정도·강조",
+  "attach": "수량/정도 + 쿠라이",
+  "ex": "산분 쿠라이 (sanpun kurai) = 3분 정도",
+  "confuse": "구라이와 동일",
+  "scene": "대략 말하기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 93,
+  "kr": "호도",
+  "ro": "hodo",
+  "mean": "~정도/~만큼",
+  "part": "비교·정도·강조",
+  "attach": "명사/동사 + 호도",
+  "ex": "오모우호도 (omou hodo) = 생각할 만큼",
+  "confuse": "비교·정도 강조",
+  "scene": "깊은 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 94,
+  "kr": "바카리",
+  "ro": "bakari",
+  "mean": "~만/~한 지 얼마 안 됨",
+  "part": "비교·정도·강조",
+  "attach": "명사/타형 + 바카리",
+  "ex": "타베타 바카리 (tabeta bakari) = 방금 먹은 참",
+  "confuse": "다케와 다름",
+  "scene": "상태 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 95,
+  "kr": "다이타이",
+  "ro": "daitai",
+  "mean": "대체로/대략",
+  "part": "비교·정도·강조",
+  "attach": "부사",
+  "ex": "다이타이 와카루 (daitai wakaru) = 대충 알겠다",
+  "confuse": "완전 이해 아님",
+  "scene": "학습·보고",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 96,
+  "kr": "홋토은도",
+  "ro": "hotondo",
+  "mean": "거의",
+  "part": "비교·정도·강조",
+  "attach": "부사",
+  "ex": "홋토은도 오나지 (hotondo onaji) = 거의 같다",
+  "confuse": "젠젠과 반대 느낌",
+  "scene": "비교 평가",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 97,
+  "kr": "젠젠",
+  "ro": "zenzen",
+  "mean": "전혀",
+  "part": "비교·정도·강조",
+  "attach": "부정과 자주 결합",
+  "ex": "젠젠 와카라나이 (zenzen wakaranai) = 전혀 모르겠다",
+  "confuse": "보통 부정과 세트",
+  "scene": "막힘 표현",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 98,
+  "kr": "아마리",
+  "ro": "amari",
+  "mean": "별로",
+  "part": "비교·정도·강조",
+  "attach": "부정과 자주 결합",
+  "ex": "아마리 스키쟈나이 (amari suki janai) = 별로 안 좋아한다",
+  "confuse": "완곡한 부정",
+  "scene": "취향 말하기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 99,
+  "kr": "켓코오",
+  "ro": "kekkou",
+  "mean": "꽤/상당히",
+  "part": "비교·정도·강조",
+  "attach": "형용사 앞",
+  "ex": "켓코오 무즈카시이 (kekkou muzukashii) = 꽤 어렵다",
+  "confuse": "생각보다 정도 큼",
+  "scene": "리뷰·감상",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 100,
+  "kr": "나카나카",
+  "ro": "nakanaka",
+  "mean": "좀처럼/꽤",
+  "part": "비교·정도·강조",
+  "attach": "부사",
+  "ex": "나카나카 데키나이 (nakanaka dekinai) = 좀처럼 안 된다",
+  "confuse": "긍정이면 꽤 좋음",
+  "scene": "진척 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 101,
+  "kr": "메챠",
+  "ro": "mecha",
+  "mean": "엄청",
+  "part": "비교·정도·강조",
+  "attach": "캐주얼 부사",
+  "ex": "메챠 이이 (mecha ii) = 엄청 좋다",
+  "confuse": "친한 말투",
+  "scene": "콘텐츠 리액션",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 102,
+  "kr": "혼토니",
+  "ro": "hontou ni",
+  "mean": "정말로",
+  "part": "비교·정도·강조",
+  "attach": "부사",
+  "ex": "혼토니 아리가토오 (hontou ni arigatou) = 정말 고마워",
+  "confuse": "진심 강조",
+  "scene": "감사·감정",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 103,
+  "kr": "타분",
+  "ro": "tabun",
+  "mean": "아마",
+  "part": "비교·정도·강조",
+  "attach": "문장 앞",
+  "ex": "타분 다이죠오부 (tabun daijoubu) = 아마 괜찮아",
+  "confuse": "카모보다 확률 높음",
+  "scene": "추측",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 104,
+  "kr": "킷토",
+  "ro": "kitto",
+  "mean": "분명",
+  "part": "비교·정도·강조",
+  "attach": "문장 앞",
+  "ex": "킷토 데키루 (kitto dekiru) = 분명 할 수 있다",
+  "confuse": "희망 섞인 확신",
+  "scene": "자기암시",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 105,
+  "kr": "카모",
+  "ro": "kamo",
+  "mean": "~일지도",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 끝",
+  "ex": "소오카모 (sou kamo) = 그럴지도",
+  "confuse": "확신 낮은 추측",
+  "scene": "관계·감정",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 106,
+  "kr": "카모 시레나이",
+  "ro": "kamo shirenai",
+  "mean": "~일지도 모른다",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 + 카모 시레나이",
+  "ex": "히츠요카모 시레나이 (hitsuyou kamo shirenai) = 필요할지도 모른다",
+  "confuse": "정중한 추측",
+  "scene": "업무 판단",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 107,
+  "kr": "미타이",
+  "ro": "mitai",
+  "mean": "~같아",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "명사/문장 + 미타이",
+  "ex": "유메미타이 (yume mitai) = 꿈같아",
+  "confuse": "요오다보다 회화적",
+  "scene": "감상·비유",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 108,
+  "kr": "미타이데스",
+  "ro": "mitai desu",
+  "mean": "~같아요",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "미타이 + 데스",
+  "ex": "아메미타이데스 (ame mitai desu) = 비 같아요",
+  "confuse": "정중 회화",
+  "scene": "관찰 공유",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 109,
+  "kr": "요오다",
+  "ro": "you da",
+  "mean": "~인 것 같다",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 + 요오다",
+  "ex": "혼토노 요오다 (hontou no you da) = 진짜 같다",
+  "confuse": "미타이보다 딱딱",
+  "scene": "설명문",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 110,
+  "kr": "소오다 관찰",
+  "ro": "sou da",
+  "mean": "~해 보인다",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "형용사 어간 + 소오",
+  "ex": "오이시소오 (oishisou) = 맛있어 보인다",
+  "confuse": "들은 말 소오다와 다름",
+  "scene": "리액션",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 111,
+  "kr": "소오다 전달",
+  "ro": "sou da",
+  "mean": "~라고 한다",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 + 소오다",
+  "ex": "아메다소오다 (ame da sou da) = 비라고 한다",
+  "confuse": "전해 들은 정보",
+  "scene": "뉴스·정보",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 112,
+  "kr": "라시이",
+  "ro": "rashii",
+  "mean": "~답다/~라더라",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "명사/문장 + 라시이",
+  "ex": "다온라시이 (daon rashii) = 다온답다",
+  "confuse": "답다/전언 양쪽",
+  "scene": "정체성·평판",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 113,
+  "kr": "하즈",
+  "ro": "hazu",
+  "mean": "~일 리/예정",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 + 하즈",
+  "ex": "데키루 하즈 (dekiru hazu) = 할 수 있을 리다",
+  "confuse": "기대 근거 있음",
+  "scene": "계획 확인",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 114,
+  "kr": "와케",
+  "ro": "wake",
+  "mean": "이유/그런 셈",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 + 와케",
+  "ex": "소오이우 와케 (sou iu wake) = 그런 이유/그런 셈",
+  "confuse": "와케쟈나이와 세트",
+  "scene": "논리 설명",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 115,
+  "kr": "와케쟈나이",
+  "ro": "wake janai",
+  "mean": "~라는 건 아니다",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 + 와케쟈나이",
+  "ex": "키라이나 와케쟈나이 (kirai na wake janai) = 싫다는 건 아니다",
+  "confuse": "부분 부정 핵심",
+  "scene": "오해 정정",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 116,
+  "kr": "쟈나이",
+  "ro": "janai",
+  "mean": "~아니야",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "명사/나형용사 + 쟈나이",
+  "ex": "소레쟈나이 (sore janai) = 그게 아니야",
+  "confuse": "나이/이나이와 구별",
+  "scene": "정정",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 117,
+  "kr": "데와 아리마센",
+  "ro": "dewa arimasen",
+  "mean": "~이 아닙니다",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "명사 + 데와 아리마센",
+  "ex": "몬다이데와 아리마센 (mondai dewa arimasen) = 문제가 아닙니다",
+  "confuse": "정중 부정",
+  "scene": "업무 문장",
+  "tone": "정중",
+  "level": "N5~N2"
+ },
+ {
+  "id": 118,
+  "kr": "키가 스루",
+  "ro": "ki ga suru",
+  "mean": "~한 느낌이 든다",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 + 키가 스루",
+  "ex": "이케루 키가 스루 (ikeru ki ga suru) = 될 것 같은 느낌",
+  "confuse": "주관적 감각",
+  "scene": "자기감각",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 119,
+  "kr": "칸지",
+  "ro": "kanji",
+  "mean": "느낌",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "명사",
+  "ex": "이이 칸지 (ii kanji) = 좋은 느낌",
+  "confuse": "감각 평가",
+  "scene": "디자인·브랜드",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 120,
+  "kr": "쿠나이",
+  "ro": "kunai",
+  "mean": "~지 않아?",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "이형용사 부정/확인",
+  "ex": "카와이쿠나이 (kawaiku nai) = 귀엽지 않아?/귀엽지 않다",
+  "confuse": "억양으로 질문/부정 갈림",
+  "scene": "리액션",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 121,
+  "kr": "요네",
+  "ro": "yo ne",
+  "mean": "그치/잖아",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 끝",
+  "ex": "소오다요네 (sou da yo ne) = 그렇지",
+  "confuse": "공감 확인",
+  "scene": "대화 밀착",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 122,
+  "kr": "카나",
+  "ro": "kana",
+  "mean": "~려나",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 끝",
+  "ex": "다이죠오부카나 (daijoubu kana) = 괜찮으려나",
+  "confuse": "혼잣말 느낌",
+  "scene": "불안·추측",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 123,
+  "kr": "다케도",
+  "ro": "dakedo",
+  "mean": "~인데",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 끝/연결",
+  "ex": "이인다케도 (iin dakedo) = 좋긴 한데",
+  "confuse": "말끝 완충",
+  "scene": "부드러운 반대",
+  "tone": "둘다",
+  "level": "N5~N2"
+ },
+ {
+  "id": 124,
+  "kr": "잇케",
+  "ro": "kke",
+  "mean": "~였지?",
+  "part": "추측·뉘앙스·말끝",
+  "attach": "문장 끝",
+  "ex": "난닷케 (nan dakke) = 뭐였지?",
+  "confuse": "기억 확인",
+  "scene": "복습·질문",
+  "tone": "캐주얼",
+  "level": "N5~N2"
+ },
+ {
+  "id": 125,
+  "kr": "노",
+  "ro": "no",
+  "mean": "~것/거",
+  "part": "명사화·형용사 접착제",
+  "attach": "문장 명사화",
+  "ex": "타베루노 (taberu no) = 먹는 것",
+  "confuse": "코토보다 말랑함",
+  "scene": "취향·감정",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 126,
+  "kr": "코토",
+  "ro": "koto",
+  "mean": "~것/일",
+  "part": "명사화·형용사 접착제",
+  "attach": "문장 명사화",
+  "ex": "마나부 코토 (manabu koto) = 배우는 것",
+  "confuse": "노보다 개념적",
+  "scene": "학습·목표",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 127,
+  "kr": "노가 스키",
+  "ro": "no ga suki",
+  "mean": "~하는 걸 좋아해",
+  "part": "명사화·형용사 접착제",
+  "attach": "동사 + 노가 스키",
+  "ex": "츠쿠루노가 스키 (tsukuru no ga suki) = 만드는 걸 좋아해",
+  "confuse": "동사를 취향으로 바꿈",
+  "scene": "자기소개",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 128,
+  "kr": "코토가 아루",
+  "ro": "koto ga aru",
+  "mean": "~한 적 있다",
+  "part": "명사화·형용사 접착제",
+  "attach": "타형 + 코토가 아루",
+  "ex": "잇타 코토가 아루 (itta koto ga aru) = 가본 적 있다",
+  "confuse": "경험 표현 핵심",
+  "scene": "여행·경험",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 129,
+  "kr": "코토니 스루",
+  "ro": "koto ni suru",
+  "mean": "~하기로 하다",
+  "part": "명사화·형용사 접착제",
+  "attach": "동사 + 코토니 스루",
+  "ex": "야루 코토니 스루 (yaru koto ni suru) = 하기로 하다",
+  "confuse": "내 결정",
+  "scene": "실행 선언",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 130,
+  "kr": "코토니 나루",
+  "ro": "koto ni naru",
+  "mean": "~하게 되다",
+  "part": "명사화·형용사 접착제",
+  "attach": "동사 + 코토니 나루",
+  "ex": "모도루 코토니 나루 (modoru koto ni naru) = 돌아가게 되다",
+  "confuse": "상황상 결정",
+  "scene": "회사·일정",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 131,
+  "kr": "토 오모우",
+  "ro": "to omou",
+  "mean": "~라고 생각해",
+  "part": "명사화·형용사 접착제",
+  "attach": "문장 + 토 오모우",
+  "ex": "이이토 오모우 (ii to omou) = 좋다고 생각해",
+  "confuse": "인용 토 필요",
+  "scene": "의견 말하기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 132,
+  "kr": "토 잇타",
+  "ro": "to itta",
+  "mean": "~라고 말했다",
+  "part": "명사화·형용사 접착제",
+  "attach": "문장 + 토 잇타",
+  "ex": "데키루토 잇타 (dekiru to itta) = 할 수 있다고 말했다",
+  "confuse": "말 전달",
+  "scene": "회의 공유",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 133,
+  "kr": "토 유우 요리",
+  "ro": "to iu yori",
+  "mean": "~라기보다",
+  "part": "명사화·형용사 접착제",
+  "attach": "표현 + 토 유우 요리",
+  "ex": "무즈카시이토 유우 요리 (muzukashii to iu yori) = 어렵다기보다",
+  "confuse": "정교한 수정",
+  "scene": "분석·설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 134,
+  "kr": "나 형용사 + 나",
+  "ro": "na",
+  "mean": "~한",
+  "part": "명사화·형용사 접착제",
+  "attach": "나형용사 + 나 + 명사",
+  "ex": "키레이나 히토 (kirei na hito) = 예쁜 사람",
+  "confuse": "명사 앞에서는 나",
+  "scene": "외모·브랜드",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 135,
+  "kr": "나 형용사 + 니",
+  "ro": "ni",
+  "mean": "~하게/~로",
+  "part": "명사화·형용사 접착제",
+  "attach": "나형용사 + 니",
+  "ex": "시즈카니 (shizuka ni) = 조용히",
+  "confuse": "동사 꾸밀 때 니",
+  "scene": "행동 방식",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 136,
+  "kr": "나 형용사 + 데",
+  "ro": "de",
+  "mean": "~하고/~해서",
+  "part": "명사화·형용사 접착제",
+  "attach": "나형용사 + 데",
+  "ex": "키레이데 벤리 (kirei de benri) = 예쁘고 편리",
+  "confuse": "연결할 때 데",
+  "scene": "제품 평가",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 137,
+  "kr": "이 형용사 + 쿠",
+  "ro": "ku",
+  "mean": "~하게",
+  "part": "명사화·형용사 접착제",
+  "attach": "이형용사 어간 + 쿠",
+  "ex": "하야쿠 (hayaku) = 빨리",
+  "confuse": "동사 꾸미는 부사화",
+  "scene": "일처리",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 138,
+  "kr": "이 형용사 + 쿠테",
+  "ro": "kute",
+  "mean": "~하고/~해서",
+  "part": "명사화·형용사 접착제",
+  "attach": "이형용사 어간 + 쿠테",
+  "ex": "야스쿠테 이이 (yasukute ii) = 싸고 좋다",
+  "confuse": "연결형",
+  "scene": "리뷰·쇼핑",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 139,
+  "kr": "이 형용사 + 캇타",
+  "ro": "katta",
+  "mean": "~했다",
+  "part": "명사화·형용사 접착제",
+  "attach": "이형용사 어간 + 캇타",
+  "ex": "타카캇타 (takakatta) = 비쌌다",
+  "confuse": "이형용사 과거",
+  "scene": "후기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 140,
+  "kr": "나 형용사 + 닷타",
+  "ro": "datta",
+  "mean": "~했다/~였다",
+  "part": "명사화·형용사 접착제",
+  "attach": "나형용사 + 닷타",
+  "ex": "키레이닷타 (kirei datta) = 예뻤다",
+  "confuse": "나형용사는 캇타 아님",
+  "scene": "감상",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 141,
+  "kr": "명사 + 닷타",
+  "ro": "datta",
+  "mean": "~였다",
+  "part": "명사화·형용사 접착제",
+  "attach": "명사 + 닷타",
+  "ex": "유메닷타 (yume datta) = 꿈이었다",
+  "confuse": "데시타의 캐주얼",
+  "scene": "회고",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 142,
+  "kr": "명사 + 데시타",
+  "ro": "deshita",
+  "mean": "~였습니다",
+  "part": "명사화·형용사 접착제",
+  "attach": "명사 + 데시타",
+  "ex": "세이카이데시타 (seikai deshita) = 정답이었습니다",
+  "confuse": "정중 과거",
+  "scene": "정답·업무",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 143,
+  "kr": "니 나루",
+  "ro": "ni naru",
+  "mean": "~이 되다",
+  "part": "명사화·형용사 접착제",
+  "attach": "명사/나형용사 + 니 나루",
+  "ex": "벤리니 나루 (benri ni naru) = 편리해지다",
+  "confuse": "변화 결과",
+  "scene": "성장·개선",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 144,
+  "kr": "쿠 나루",
+  "ro": "ku naru",
+  "mean": "~해지다",
+  "part": "명사화·형용사 접착제",
+  "attach": "이형용사 + 쿠 나루",
+  "ex": "야스쿠 나루 (yasuku naru) = 싸지다",
+  "confuse": "이형용사 변화",
+  "scene": "가격·상태",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 145,
+  "kr": "아루",
+  "ro": "aru",
+  "mean": "사물/일이 있다",
+  "part": "존재·조사·수량",
+  "attach": "사물 + 가 + 아루",
+  "ex": "지칸가 아루 (jikan ga aru) = 시간이 있다",
+  "confuse": "사람·동물은 이루",
+  "scene": "일정·자원",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 146,
+  "kr": "이루",
+  "ro": "iru",
+  "mean": "사람/동물이 있다",
+  "part": "존재·조사·수량",
+  "attach": "사람 + 가 + 이루",
+  "ex": "토모다치가 이루 (tomodachi ga iru) = 친구가 있다",
+  "confuse": "사물은 아루",
+  "scene": "관계",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 147,
+  "kr": "아리마센",
+  "ro": "arimasen",
+  "mean": "사물이 없습니다",
+  "part": "존재·조사·수량",
+  "attach": "사물 + 가 + 아리마센",
+  "ex": "몬다이가 아리마센 (mondai ga arimasen) = 문제가 없습니다",
+  "confuse": "정중 사물 부정",
+  "scene": "업무 대응",
+  "tone": "정중",
+  "level": "N5"
+ },
+ {
+  "id": 148,
+  "kr": "이나이",
+  "ro": "inai",
+  "mean": "사람/동물이 없다",
+  "part": "존재·조사·수량",
+  "attach": "사람 + 가 + 이나이",
+  "ex": "다레모 이나이 (dare mo inai) = 아무도 없다",
+  "confuse": "나이와 구별",
+  "scene": "상황 설명",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 149,
+  "kr": "명사 데와 아리마센",
+  "ro": "meishi dewa arimasen",
+  "mean": "명사가 아닙니다",
+  "part": "존재·조사·수량",
+  "attach": "명사 + 데와 아리마센",
+  "ex": "소레데와 아리마센 (sore dewa arimasen) = 그것이 아닙니다",
+  "confuse": "아리마센과 다름",
+  "scene": "정정",
+  "tone": "정중",
+  "level": "N5"
+ },
+ {
+  "id": 150,
+  "kr": "가",
+  "ro": "ga",
+  "mean": "~이/가",
+  "part": "존재·조사·수량",
+  "attach": "주어·초점",
+  "ex": "와타시가 야루 (watashi ga yaru) = 내가 한다",
+  "confuse": "와보다 초점 강함",
+  "scene": "책임·강조",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 151,
+  "kr": "와",
+  "ro": "wa",
+  "mean": "~은/는",
+  "part": "존재·조사·수량",
+  "attach": "화제 표시",
+  "ex": "와타시와 피오데스 (watashi wa PO desu) = 저는 PO입니다",
+  "confuse": "주제 제시",
+  "scene": "자기소개",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 152,
+  "kr": "오",
+  "ro": "o",
+  "mean": "~을/를",
+  "part": "존재·조사·수량",
+  "attach": "목적어",
+  "ex": "미즈오 노무 (mizu o nomu) = 물을 마신다",
+  "confuse": "동작 대상",
+  "scene": "일상 문장",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 153,
+  "kr": "니",
+  "ro": "ni",
+  "mean": "~에/~에게",
+  "part": "존재·조사·수량",
+  "attach": "도착점·상대",
+  "ex": "카이샤니 이쿠 (kaisha ni iku) = 회사에 간다",
+  "confuse": "장소 데와 다름",
+  "scene": "이동·시간",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 154,
+  "kr": "데",
+  "ro": "de",
+  "mean": "~에서/~로",
+  "part": "존재·조사·수량",
+  "attach": "행동 장소·수단",
+  "ex": "카페데 공부 (kafe de benkyou) = 카페에서 공부",
+  "confuse": "니는 도착점, 데는 실행장소",
+  "scene": "루틴",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 155,
+  "kr": "토",
+  "ro": "to",
+  "mean": "~와/라고",
+  "part": "존재·조사·수량",
+  "attach": "함께·인용",
+  "ex": "토모다치토 아우 (tomodachi to au) = 친구와 만난다",
+  "confuse": "인용 토와 동일 소리",
+  "scene": "관계·전달",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 156,
+  "kr": "야",
+  "ro": "ya",
+  "mean": "~나/~같은",
+  "part": "존재·조사·수량",
+  "attach": "예시 나열",
+  "ex": "카페야 혼야 (kafe ya honya) = 카페나 서점",
+  "confuse": "전부 나열 아님",
+  "scene": "취향·장소",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 157,
+  "kr": "모",
+  "ro": "mo",
+  "mean": "~도",
+  "part": "존재·조사·수량",
+  "attach": "추가",
+  "ex": "와타시모 (watashi mo) = 나도",
+  "confuse": "강조 위치 중요",
+  "scene": "공감",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 158,
+  "kr": "노",
+  "ro": "no",
+  "mean": "~의",
+  "part": "존재·조사·수량",
+  "attach": "소유·수식",
+  "ex": "와타시노 쿠루마 (watashi no kuruma) = 내 차",
+  "confuse": "명사와 명사 접착제",
+  "scene": "소유·브랜드",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 159,
+  "kr": "카라",
+  "ro": "kara",
+  "mean": "~부터",
+  "part": "존재·조사·수량",
+  "attach": "시작점",
+  "ex": "산지카라 (sanji kara) = 3시부터",
+  "confuse": "이유 카라와 동일 소리",
+  "scene": "시간",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 160,
+  "kr": "요리",
+  "ro": "yori",
+  "mean": "~보다/~부터",
+  "part": "존재·조사·수량",
+  "attach": "비교·기점",
+  "ex": "아사요리 (asa yori) = 아침보다/아침부터",
+  "confuse": "문맥으로 구별",
+  "scene": "비교",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 161,
+  "kr": "마이",
+  "ro": "mai",
+  "mean": "~마다",
+  "part": "존재·조사·수량",
+  "attach": "수량/시간 앞",
+  "ex": "마이니치 (mainichi) = 매일",
+  "confuse": "반복 단어",
+  "scene": "루틴",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 162,
+  "kr": "메",
+  "ro": "me",
+  "mean": "~번째",
+  "part": "존재·조사·수량",
+  "attach": "숫자 + 메",
+  "ex": "산카이메 (sankai me) = 세 번째",
+  "confuse": "횟수 세기",
+  "scene": "복습·데이트",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 163,
+  "kr": "코",
+  "ro": "ko",
+  "mean": "개",
+  "part": "존재·조사·수량",
+  "attach": "작은 물건 수",
+  "ex": "밋츠노 링고 (mittsu no ringo) = 사과 세 개",
+  "confuse": "수량 표현 우선",
+  "scene": "쇼핑",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 164,
+  "kr": "닌",
+  "ro": "nin",
+  "mean": "명",
+  "part": "존재·조사·수량",
+  "attach": "사람 수",
+  "ex": "후타리 (futari) = 두 명",
+  "confuse": "히토리/후타리 예외",
+  "scene": "약속·예약",
+  "tone": "둘다",
+  "level": "N5"
+ },
+ {
+  "id": 165,
+  "kr": "데스",
+  "ro": "desu",
+  "mean": "~입니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "명사/형용사 + 데스",
+  "ex": "다온데스 (Daon desu) = 다온입니다",
+  "confuse": "정중 기본",
+  "scene": "자기소개",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 166,
+  "kr": "마스",
+  "ro": "masu",
+  "mean": "~합니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "동사 어간 + 마스",
+  "ex": "이키마스 (ikimasu) = 갑니다",
+  "confuse": "정중 동사 기본",
+  "scene": "여행·업무",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 167,
+  "kr": "마센",
+  "ro": "masen",
+  "mean": "~하지 않습니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "동사 어간 + 마센",
+  "ex": "이키마센 (ikimasen) = 가지 않습니다",
+  "confuse": "정중 부정",
+  "scene": "거절",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 168,
+  "kr": "마시타",
+  "ro": "mashita",
+  "mean": "~했습니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "동사 어간 + 마시타",
+  "ex": "이키마시타 (ikimashita) = 갔습니다",
+  "confuse": "정중 과거",
+  "scene": "보고",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 169,
+  "kr": "마센데시타",
+  "ro": "masen deshita",
+  "mean": "~하지 않았습니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "동사 어간 + 마센데시타",
+  "ex": "이키마센데시타 (ikimasen deshita) = 가지 않았습니다",
+  "confuse": "길지만 필수",
+  "scene": "사실 정정",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 170,
+  "kr": "데쇼오",
+  "ro": "deshou",
+  "mean": "~겠죠/~일 겁니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 + 데쇼오",
+  "ex": "다이죠오부데쇼오 (daijoubu deshou) = 괜찮겠죠",
+  "confuse": "추측 정중",
+  "scene": "예상",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 171,
+  "kr": "데쇼",
+  "ro": "desho",
+  "mean": "~잖아",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 + 데쇼",
+  "ex": "소오데쇼 (sou desho) = 그렇잖아",
+  "confuse": "데쇼오의 캐주얼",
+  "scene": "확인",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 172,
+  "kr": "요",
+  "ro": "yo",
+  "mean": "~야/~요",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 끝",
+  "ex": "이이데스요 (ii desu yo) = 좋아요",
+  "confuse": "정보 전달·강조",
+  "scene": "알려주기",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 173,
+  "kr": "네",
+  "ro": "ne",
+  "mean": "~네요/~지",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 끝",
+  "ex": "이이데스네 (ii desu ne) = 좋네요",
+  "confuse": "공감 요청",
+  "scene": "리액션",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 174,
+  "kr": "나요",
+  "ro": "na yo",
+  "mean": "~하지 마/해라 느낌",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 끝",
+  "ex": "야메나요 (yame na yo) = 그만해",
+  "confuse": "강한 캐주얼",
+  "scene": "친밀한 제지",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 175,
+  "kr": "나요네",
+  "ro": "na yo ne",
+  "mean": "~하잖아 그치",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 끝",
+  "ex": "무즈카시이요네 (muzukashii yo ne) = 어렵잖아 그치",
+  "confuse": "공감+확인",
+  "scene": "학습 공감",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 176,
+  "kr": "와요",
+  "ro": "wa yo",
+  "mean": "~야/~예요",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 끝",
+  "ex": "소오다와요 (sou da wa yo) = 그렇다구요",
+  "confuse": "여성적/드라마틱할 수 있음",
+  "scene": "톤 실험",
+  "tone": "캐주얼",
+  "level": "N5~N3"
+ },
+ {
+  "id": 177,
+  "kr": "노데스",
+  "ro": "no desu",
+  "mean": "~인 겁니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 + 노데스",
+  "ex": "히츠요나노데스 (hitsuyou na no desu) = 필요한 겁니다",
+  "confuse": "설명 강조",
+  "scene": "논리 설득",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 178,
+  "kr": "은데스",
+  "ro": "n desu",
+  "mean": "~거든요",
+  "part": "정중체·말끝 리듬",
+  "attach": "축약 설명",
+  "ex": "이소가시인데스 (isogashii n desu) = 바쁘거든요",
+  "confuse": "이유 배경 제시",
+  "scene": "부드러운 설명",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 179,
+  "kr": "은데스케도",
+  "ro": "n desu kedo",
+  "mean": "~인데요",
+  "part": "정중체·말끝 리듬",
+  "attach": "문장 + 은데스케도",
+  "ex": "키키타인데스케도 (kikitai n desu kedo) = 묻고 싶은데요",
+  "confuse": "요청 전 쿠션",
+  "scene": "문의·상담",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 180,
+  "kr": "오네가이시마스",
+  "ro": "onegaishimasu",
+  "mean": "부탁드립니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "명사/요청 뒤",
+  "ex": "카쿠닌 오네가이시마스 (kakunin onegaishimasu) = 확인 부탁드립니다",
+  "confuse": "쿠다사이보다 업무적",
+  "scene": "업무 요청",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 181,
+  "kr": "다이죠오부데스",
+  "ro": "daijoubu desu",
+  "mean": "괜찮습니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "단독",
+  "ex": "다이죠오부데스 (daijoubu desu) = 괜찮아요",
+  "confuse": "거절/허락 둘 다 가능",
+  "scene": "안전 답변",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 182,
+  "kr": "치가이마스",
+  "ro": "chigaimasu",
+  "mean": "다릅니다/아닙니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "단독",
+  "ex": "소레와 치가이마스 (sore wa chigaimasu) = 그건 다릅니다",
+  "confuse": "아닙니다보다 자연",
+  "scene": "정정",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 183,
+  "kr": "앗테마스",
+  "ro": "attemasu",
+  "mean": "맞습니다",
+  "part": "정중체·말끝 리듬",
+  "attach": "단독",
+  "ex": "앗테마스 (attemasu) = 맞습니다",
+  "confuse": "세이카이데스와 유사",
+  "scene": "정답 확인",
+  "tone": "정중",
+  "level": "N5~N3"
+ },
+ {
+  "id": 184,
+  "kr": "나루호도",
+  "ro": "naruhodo",
+  "mean": "그렇군요",
+  "part": "정중체·말끝 리듬",
+  "attach": "단독",
+  "ex": "나루호도 (naruhodo) = 그렇군요",
+  "confuse": "이해 리액션",
+  "scene": "대화 유지",
+  "tone": "둘다",
+  "level": "N5~N3"
+ },
+ {
+  "id": 185,
+  "kr": "고토",
+  "ro": "goto",
+  "mean": "~마다",
+  "part": "업무·자기표현 조립",
+  "attach": "시간 + 고토",
+  "ex": "이치지칸고토 (ichijikan goto) = 한 시간마다",
+  "confuse": "마이와 다름",
+  "scene": "루틴·체크",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 186,
+  "kr": "베츠니",
+  "ro": "betsu ni",
+  "mean": "딱히/별로",
+  "part": "업무·자기표현 조립",
+  "attach": "부정과 자주 결합",
+  "ex": "베츠니 이이 (betsu ni ii) = 딱히 괜찮아",
+  "confuse": "방어적 뉘앙스 가능",
+  "scene": "감정 숨기기",
+  "tone": "캐주얼",
+  "level": "N4~N2"
+ },
+ {
+  "id": 187,
+  "kr": "잇쇼니",
+  "ro": "issho ni",
+  "mean": "같이",
+  "part": "업무·자기표현 조립",
+  "attach": "부사",
+  "ex": "잇쇼니 이코오 (issho ni ikou) = 같이 가자",
+  "confuse": "토와 함께 자주 사용",
+  "scene": "약속",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 188,
+  "kr": "히토리데",
+  "ro": "hitori de",
+  "mean": "혼자서",
+  "part": "업무·자기표현 조립",
+  "attach": "수량 + 데",
+  "ex": "히토리데 스무 (hitori de sumu) = 혼자 산다",
+  "confuse": "데는 방식",
+  "scene": "생활 설명",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 189,
+  "kr": "지분데",
+  "ro": "jibun de",
+  "mean": "스스로",
+  "part": "업무·자기표현 조립",
+  "attach": "명사 + 데",
+  "ex": "지분데 츠쿠루 (jibun de tsukuru) = 스스로 만든다",
+  "confuse": "자기주도 강조",
+  "scene": "클로드 앱 제작",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 190,
+  "kr": "오카게데",
+  "ro": "okage de",
+  "mean": "~덕분에",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/문장 + 오카게데",
+  "ex": "아나타노 오카게데 (anata no okage de) = 네 덕분에",
+  "confuse": "감사 이유",
+  "scene": "관계·도움",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 191,
+  "kr": "세이데",
+  "ro": "sei de",
+  "mean": "~탓에",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/문장 + 세이데",
+  "ex": "네부소쿠노 세이데 (nebusoku no sei de) = 수면부족 탓에",
+  "confuse": "부정 이유",
+  "scene": "컨디션",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 192,
+  "kr": "타시카니",
+  "ro": "tashika ni",
+  "mean": "확실히",
+  "part": "업무·자기표현 조립",
+  "attach": "부사",
+  "ex": "타시카니 소오 (tashika ni sou) = 확실히 그래",
+  "confuse": "동의 후 반박 가능",
+  "scene": "논의",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 193,
+  "kr": "잇포오데",
+  "ro": "ippou de",
+  "mean": "한편으로",
+  "part": "업무·자기표현 조립",
+  "attach": "문장 연결",
+  "ex": "잇포오데 리스크 (ippou de risk) = 한편으로 리스크",
+  "confuse": "양면 분석",
+  "scene": "전략기획",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 194,
+  "kr": "쯔마리",
+  "ro": "tsumari",
+  "mean": "즉",
+  "part": "업무·자기표현 조립",
+  "attach": "문장 연결",
+  "ex": "쯔마리 코스트 (tsumari cost) = 즉 비용",
+  "confuse": "요약 결론",
+  "scene": "보고·설명",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 195,
+  "kr": "켁카",
+  "ro": "kekka",
+  "mean": "결과",
+  "part": "업무·자기표현 조립",
+  "attach": "명사",
+  "ex": "켁카토 시테 (kekka to shite) = 결과적으로",
+  "confuse": "결과 프레임",
+  "scene": "성과 보고",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 196,
+  "kr": "모쿠테키",
+  "ro": "mokuteki",
+  "mean": "목적",
+  "part": "업무·자기표현 조립",
+  "attach": "명사",
+  "ex": "모쿠테키와 (mokuteki wa) = 목적은",
+  "confuse": "목표와 목적 구분",
+  "scene": "기획",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 197,
+  "kr": "카다이",
+  "ro": "kadai",
+  "mean": "과제",
+  "part": "업무·자기표현 조립",
+  "attach": "명사",
+  "ex": "카다이와 나니 (kadai wa nani) = 과제는 무엇",
+  "confuse": "문제보다 실행형",
+  "scene": "업무·성장",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 198,
+  "kr": "켄토오",
+  "ro": "kentou",
+  "mean": "검토",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/스루",
+  "ex": "켄토오 시마스 (kentou shimasu) = 검토하겠습니다",
+  "confuse": "업무 기본어",
+  "scene": "회사",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 199,
+  "kr": "카쿠닌",
+  "ro": "kakunin",
+  "mean": "확인",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/스루",
+  "ex": "카쿠닌 시테 쿠다사이 (kakunin shite kudasai) = 확인해 주세요",
+  "confuse": "요청과 자주 붙음",
+  "scene": "업무",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 200,
+  "kr": "쿄오유우",
+  "ro": "kyouyuu",
+  "mean": "공유",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/스루",
+  "ex": "쿄오유우 시마스 (kyouyuu shimasu) = 공유하겠습니다",
+  "confuse": "업무 스피킹 핵심",
+  "scene": "회의",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 201,
+  "kr": "소오단",
+  "ro": "soudan",
+  "mean": "상담/논의",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/스루",
+  "ex": "소오단 시타이 (soudan shitai) = 상담하고 싶다",
+  "confuse": "질문보다 무거움",
+  "scene": "대표·팀 논의",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 202,
+  "kr": "테이안",
+  "ro": "teian",
+  "mean": "제안",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/스루",
+  "ex": "테이안 시마스 (teian shimasu) = 제안합니다",
+  "confuse": "의견 제시",
+  "scene": "전략",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 203,
+  "kr": "하츠겐",
+  "ro": "hatsugen",
+  "mean": "발언",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/스루",
+  "ex": "하츠겐 사세테 쿠다사이 (hatsugen sasete kudasai) = 발언하게 해 주세요",
+  "confuse": "사세테와 결합",
+  "scene": "미팅",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 204,
+  "kr": "낫토쿠",
+  "ro": "nattoku",
+  "mean": "납득",
+  "part": "업무·자기표현 조립",
+  "attach": "명사/스루",
+  "ex": "낫토쿠 데키나이 (nattoku dekinai) = 납득할 수 없다",
+  "confuse": "감정+논리",
+  "scene": "설득·관계",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 205,
+  "kr": "츠모리",
+  "ro": "tsumori",
+  "mean": "~할 생각",
+  "part": "확장 어미·습관 표현",
+  "attach": "동사 기본형 + 츠모리",
+  "ex": "야루 츠모리 (yaru tsumori) = 할 생각",
+  "confuse": "예정·의도",
+  "scene": "계획 선언",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 206,
+  "kr": "요테이",
+  "ro": "yotei",
+  "mean": "~할 예정",
+  "part": "확장 어미·습관 표현",
+  "attach": "동사 기본형 + 요테이",
+  "ex": "모도루 요테이 (modoru yotei) = 돌아갈 예정",
+  "confuse": "츠모리보다 일정적",
+  "scene": "스케줄",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 207,
+  "kr": "베키",
+  "ro": "beki",
+  "mean": "~해야 할",
+  "part": "확장 어미·습관 표현",
+  "attach": "동사 기본형 + 베키",
+  "ex": "야루베키 (yaru beki) = 해야 할",
+  "confuse": "규범·당위 강함",
+  "scene": "전략 원칙",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 208,
+  "kr": "하지메루",
+  "ro": "hajimeru",
+  "mean": "~하기 시작하다",
+  "part": "확장 어미·습관 표현",
+  "attach": "마스형 어간 + 하지메루",
+  "ex": "마나비하지메루 (manabi hajimeru) = 배우기 시작하다",
+  "confuse": "시작 변화",
+  "scene": "새 프로젝트",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 209,
+  "kr": "츠즈케루",
+  "ro": "tsuzukeru",
+  "mean": "계속 ~하다",
+  "part": "확장 어미·습관 표현",
+  "attach": "마스형 어간 + 츠즈케루",
+  "ex": "야리츠즈케루 (yari tsuzukeru) = 계속 하다",
+  "confuse": "지속성",
+  "scene": "루틴·끈기",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 210,
+  "kr": "오와루",
+  "ro": "owaru",
+  "mean": "~하기 끝나다",
+  "part": "확장 어미·습관 표현",
+  "attach": "마스형 어간 + 오와루",
+  "ex": "요미오와루 (yomi owaru) = 다 읽다",
+  "confuse": "완료",
+  "scene": "독서·업무",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 211,
+  "kr": "나오스",
+  "ro": "naosu",
+  "mean": "다시 ~하다",
+  "part": "확장 어미·습관 표현",
+  "attach": "마스형 어간 + 나오스",
+  "ex": "야리나오스 (yari naosu) = 다시 하다",
+  "confuse": "수정·재시작",
+  "scene": "실패 후 재실행",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 212,
+  "kr": "카케루",
+  "ro": "kakeru",
+  "mean": "~할 뻔하다/~하기 시작하다",
+  "part": "확장 어미·습관 표현",
+  "attach": "마스형 어간 + 카케루",
+  "ex": "와스레카케루 (wasure kakeru) = 잊을 뻔하다",
+  "confuse": "문맥 의존",
+  "scene": "실수 설명",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 213,
+  "kr": "마마",
+  "ro": "mama",
+  "mean": "~한 채로",
+  "part": "확장 어미·습관 표현",
+  "attach": "타형/나이형 + 마마",
+  "ex": "네타마마 (neta mama) = 잔 채로",
+  "confuse": "상태 유지",
+  "scene": "생활 묘사",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 214,
+  "kr": "파나시",
+  "ro": "panashi",
+  "mean": "~한 채 방치",
+  "part": "확장 어미·습관 표현",
+  "attach": "마스형 어간 + 파나시",
+  "ex": "츠케파나시 (tsuke panashi) = 켜둔 채",
+  "confuse": "부정적 방치",
+  "scene": "생활·습관",
+  "tone": "캐주얼",
+  "level": "N4~N2"
+ },
+ {
+  "id": 215,
+  "kr": "가치",
+  "ro": "gachi",
+  "mean": "~하기 쉽다/자주 그렇다",
+  "part": "확장 어미·습관 표현",
+  "attach": "마스형 어간 + 가치",
+  "ex": "와스레가치 (wasure gachi) = 잘 잊는 편",
+  "confuse": "경향성",
+  "scene": "ADHD·습관",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 216,
+  "kr": "기미",
+  "ro": "gimi",
+  "mean": "~기미/조금 ~함",
+  "part": "확장 어미·습관 표현",
+  "attach": "명사/어간 + 기미",
+  "ex": "츠카레기미 (tsukare gimi) = 좀 피곤한 기미",
+  "confuse": "약한 상태",
+  "scene": "컨디션",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 217,
+  "kr": "메",
+  "ro": "me",
+  "mean": "좀 ~한 편",
+  "part": "확장 어미·습관 표현",
+  "attach": "형용사 어간 + 메",
+  "ex": "하야메 (hayame) = 좀 이르게",
+  "confuse": "정도 조절",
+  "scene": "일정",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 218,
+  "kr": "푸우",
+  "ro": "fuu",
+  "mean": "~식/~풍",
+  "part": "확장 어미·습관 표현",
+  "attach": "명사 + 푸우",
+  "ex": "니혼푸우 (nihon fuu) = 일본식",
+  "confuse": "스타일 설명",
+  "scene": "콘텐츠·브랜드",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 219,
+  "kr": "라시사",
+  "ro": "rashisa",
+  "mean": "~다움",
+  "part": "확장 어미·습관 표현",
+  "attach": "명사 + 라시사",
+  "ex": "다온라시사 (Daon rashisa) = 다온다움",
+  "confuse": "정체성 명사화",
+  "scene": "브랜드 자아",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 220,
+  "kr": "테키",
+  "ro": "teki",
+  "mean": "~적",
+  "part": "확장 어미·습관 표현",
+  "attach": "명사 + 테키",
+  "ex": "구타이테키 (gutaiteki) = 구체적",
+  "confuse": "나/니/데 변형 주의",
+  "scene": "분석 표현",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 221,
+  "kr": "테키나",
+  "ro": "teki na",
+  "mean": "~적인 + 명사",
+  "part": "확장 어미·습관 표현",
+  "attach": "테키 + 나 + 명사",
+  "ex": "구타이테키나 세츠메이 (gutaiteki na setsumei) = 구체적인 설명",
+  "confuse": "명사 앞 나",
+  "scene": "문서·설명",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 222,
+  "kr": "테키니",
+  "ro": "teki ni",
+  "mean": "~적으로",
+  "part": "확장 어미·습관 표현",
+  "attach": "테키 + 니",
+  "ex": "론리테키니 (ronriteki ni) = 논리적으로",
+  "confuse": "동사 꾸밈",
+  "scene": "분석·설득",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 223,
+  "kr": "테키데",
+  "ro": "teki de",
+  "mean": "~적이고/~적이라서",
+  "part": "확장 어미·습관 표현",
+  "attach": "테키 + 데",
+  "ex": "센랴쿠테키데 (senryakuteki de) = 전략적이고",
+  "confuse": "연결형",
+  "scene": "브랜드 평가",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 224,
+  "kr": "토카",
+  "ro": "toka",
+  "mean": "~라든가",
+  "part": "확장 어미·습관 표현",
+  "attach": "명사/문장 + 토카",
+  "ex": "카페토카 (kafe toka) = 카페라든가",
+  "confuse": "느슨한 예시",
+  "scene": "일상 대화",
+  "tone": "캐주얼",
+  "level": "N4~N2"
+ },
+ {
+  "id": 225,
+  "kr": "타쿠테",
+  "ro": "takute",
+  "mean": "~하고 싶어서",
+  "part": "감각·변화·관계 접착제",
+  "attach": "타이 → 타쿠테",
+  "ex": "아이타쿠테 (aitakute) = 만나고 싶어서",
+  "confuse": "타이의 연결형",
+  "scene": "감정 이유",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 226,
+  "kr": "타캇타",
+  "ro": "takatta",
+  "mean": "~하고 싶었다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "타이 → 타캇타",
+  "ex": "이키타캇타 (ikitakatta) = 가고 싶었다",
+  "confuse": "과거 욕망",
+  "scene": "아쉬움·회고",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 227,
+  "kr": "타가루",
+  "ro": "tagaru",
+  "mean": "~하고 싶어 하다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "남의 욕망 + 타가루",
+  "ex": "이키타가루 (ikitagaru) = 가고 싶어 하다",
+  "confuse": "내 욕망은 타이",
+  "scene": "상대 심리",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 228,
+  "kr": "소오니 나루",
+  "ro": "sou ni naru",
+  "mean": "~하게 될 것 같다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "형용사/동사 + 소오니 나루",
+  "ex": "나키소오니 나루 (nakisou ni naru) = 울 것 같아지다",
+  "confuse": "감정 변화",
+  "scene": "감정 표현",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 229,
+  "kr": "소오니 미에루",
+  "ro": "sou ni mieru",
+  "mean": "~해 보이다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "형용사 + 소오니 미에루",
+  "ex": "츠카레테 소오니 미에루 (tsukarete sou ni mieru) = 피곤해 보이다",
+  "confuse": "관찰 표현",
+  "scene": "상대 상태",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 230,
+  "kr": "요오니 미에루",
+  "ro": "you ni mieru",
+  "mean": "~처럼 보이다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사/문장 + 요오니 미에루",
+  "ex": "다이죠오부노 요오니 미에루 (daijoubu no you ni mieru) = 괜찮아 보이다",
+  "confuse": "미타이와 유사",
+  "scene": "인상 평가",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 231,
+  "kr": "니 미에루",
+  "ro": "ni mieru",
+  "mean": "~로 보이다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사/형용사 + 니 미에루",
+  "ex": "프로니 미에루 (pro ni mieru) = 프로처럼 보이다",
+  "confuse": "외관 판단",
+  "scene": "이미지·브랜드",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 232,
+  "kr": "니 키코에루",
+  "ro": "ni kikoeru",
+  "mean": "~로 들리다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사/문장 + 니 키코에루",
+  "ex": "이이 아이데아니 키코에루 (ii idea ni kikoeru) = 좋은 아이디어로 들리다",
+  "confuse": "청각 인상",
+  "scene": "회의 반응",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 233,
+  "kr": "토 칸지루",
+  "ro": "to kanjiru",
+  "mean": "~라고 느끼다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "문장 + 토 칸지루",
+  "ex": "히츠요다토 칸지루 (hitsuyou da to kanjiru) = 필요하다고 느끼다",
+  "confuse": "다토 접착 헷갈림",
+  "scene": "자아성찰",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 234,
+  "kr": "토 키즈쿠",
+  "ro": "to kizuku",
+  "mean": "~라고 깨닫다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "문장 + 토 키즈쿠",
+  "ex": "무리다토 키즈쿠 (muri da to kizuku) = 무리라고 깨닫다",
+  "confuse": "인용 토 필요",
+  "scene": "회고",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 235,
+  "kr": "니 키즈쿠",
+  "ro": "ni kizuku",
+  "mean": "~을 알아차리다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 니 키즈쿠",
+  "ex": "헨카니 키즈쿠 (henka ni kizuku) = 변화를 알아차리다",
+  "confuse": "토 키즈쿠와 구별",
+  "scene": "관찰·분석",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 236,
+  "kr": "니 나레루",
+  "ro": "ni nareru",
+  "mean": "~에 익숙해지다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 니 나레루",
+  "ex": "니혼고니 나레루 (nihongo ni nareru) = 일본어에 익숙해지다",
+  "confuse": "변화 니",
+  "scene": "학습 적응",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 237,
+  "kr": "니 아우",
+  "ro": "ni au",
+  "mean": "~에 어울리다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 니 아우",
+  "ex": "다온니 아우 (Daon ni au) = 다온에게 어울리다",
+  "confuse": "상대/대상 니",
+  "scene": "패션·브랜드",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 238,
+  "kr": "니 니테이루",
+  "ro": "ni nite iru",
+  "mean": "~와 닮아 있다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 니 니테이루",
+  "ex": "하하니 니테이루 (haha ni nite iru) = 엄마를 닮았다",
+  "confuse": "토보다 니",
+  "scene": "외모·관계",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 239,
+  "kr": "토 니테이루",
+  "ro": "to nite iru",
+  "mean": "~와 비슷하다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 토 니테이루",
+  "ex": "소레토 니테이루 (sore to nite iru) = 그것과 비슷하다",
+  "confuse": "니/토 둘 다 가능 맥락 차이",
+  "scene": "비교",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 240,
+  "kr": "니 카와루",
+  "ro": "ni kawaru",
+  "mean": "~로 바뀌다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 니 카와루",
+  "ex": "센랴쿠니 카와루 (senryaku ni kawaru) = 전략으로 바뀌다",
+  "confuse": "변화 결과 니",
+  "scene": "전략 수정",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 241,
+  "kr": "오 카에루",
+  "ro": "o kaeru",
+  "mean": "~을 바꾸다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 오 + 카에루",
+  "ex": "호오코오오 카에루 (houkou o kaeru) = 방향을 바꾸다",
+  "confuse": "자동사/타동사 구별",
+  "scene": "의사결정",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 242,
+  "kr": "니 츠나가루",
+  "ro": "ni tsunagaru",
+  "mean": "~로 이어지다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 니 츠나가루",
+  "ex": "세이코오니 츠나가루 (seikou ni tsunagaru) = 성공으로 이어지다",
+  "confuse": "결과 방향 니",
+  "scene": "성장 논리",
+  "tone": "정중",
+  "level": "N4~N2"
+ },
+ {
+  "id": 243,
+  "kr": "토 카사나루",
+  "ro": "to kasanaru",
+  "mean": "~와 겹치다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "명사 + 토 카사나루",
+  "ex": "요테이토 카사나루 (yotei to kasanaru) = 일정과 겹치다",
+  "confuse": "함께 겹침 토",
+  "scene": "일정 조율",
+  "tone": "둘다",
+  "level": "N4~N2"
+ },
+ {
+  "id": 244,
+  "kr": "니 마니아우",
+  "ro": "ni maniau",
+  "mean": "~에 맞추다/시간 맞다",
+  "part": "감각·변화·관계 접착제",
+  "attach": "시간 + 니 마니아우",
+  "ex": "마감니 마니아우 (shimekiri ni maniau) = 마감에 맞추다",
+  "confuse": "데드라인 니",
+  "scene": "업무·루틴",
+  "tone": "둘다",
+  "level": "N4~N2"
+ }
+];
+</script>
+</head>
+<body>
+<header>
+ <div class="headerInner">
+  <h1>일본어 스피킹 문법블록 <small id="totalLabel">·</small></h1>
+  <div class="searchrow">
+    <input id="q" type="search" placeholder="검색: 패턴·로마자·뜻·예시·헷갈림포인트 (전체 분류 대상)">
+  </div>
+  <div class="toolrow">
+    <button id="exportBtn">⬇ 진행상황 백업</button>
+    <button id="importBtn">⬆ 백업 복원</button>
+    <button id="resetBtn">초기화</button>
+    <input id="importFile" type="file" accept="application/json" hidden>
+  </div>
+  <div class="rowlabel">분류</div>
+  <div class="filters" id="partFilters"></div>
+  <div class="rowlabel">상태</div>
+  <div class="filters" id="statusFilters"></div>
+  <div class="progwrap">
+    <div class="progtext"><span id="progText">0/0 (0%)</span><span id="hlCount">하이라이트 0</span></div>
+    <div class="progbar"><div class="progfill" id="progFill"></div></div>
+  </div>
+ </div>
+</header>
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="emptyMsg" hidden>검색 결과가 없습니다.</div>
+  <div class="pager" id="pager"></div>
+</main>
+<footer>오프라인 단일 HTML · 진행 상태는 이 브라우저에 저장됩니다</footer>
+<script>
+const LS_DONE = "gram_progress_done";
+const LS_HL   = "gram_progress_hl";
+const PAGE_SIZE = 100;
+
+let DATA = window.GRAMMAR_DATA || [];
+let done = new Set(JSON.parse(localStorage.getItem(LS_DONE) || "[]"));
+let hl   = new Set(JSON.parse(localStorage.getItem(LS_HL) || "[]"));
+
+let state = { q:"", part:"전체", status:"all", hlOnly:false, page:1 };
+
+function saveDone(){ localStorage.setItem(LS_DONE, JSON.stringify([...done])); }
+function saveHl(){ localStorage.setItem(LS_HL, JSON.stringify([...hl])); }
+
+function matches(d){
+  if(!state.q && state.part !== "전체" && d.part !== state.part) return false;
+  if(state.hlOnly && !hl.has(d.id)) return false;
+  if(state.status === "done" && !done.has(d.id)) return false;
+  if(state.status === "hide-done" && done.has(d.id)) return false;
+  if(state.q){
+    const s = (d.kr+d.ro+d.mean+d.ex+d.part+d.confuse+d.attach).toLowerCase();
+    if(!s.includes(state.q.toLowerCase())) return false;
+  }
+  return true;
+}
+
+const PARTS = ["전체", ...Array.from(new Set(DATA.map(d=>d.part)))];
+
+function buildPartFilters(){
+  const wrap = document.getElementById("partFilters");
+  wrap.innerHTML = "";
+  PARTS.forEach(p=>{
+    const count = p === "전체" ? DATA.length : DATA.filter(d=>d.part===p).length;
+    const b = document.createElement("button");
+    b.className = "chip" + (state.part===p ? " on":"");
+    b.innerHTML = `${p}<span class="n">${count}</span>`;
+    b.onclick = ()=>{ state.part=p; state.page=1; render(); window.scrollTo(0,0); };
+    wrap.appendChild(b);
+  });
+}
+
+function buildStatusFilters(){
+  const cats = [
+    {key:"all", label:"전체"},
+    {key:"hide-done", label:"암기 전만"},
+    {key:"done", label:"암기완료만"},
+  ];
+  const wrap = document.getElementById("statusFilters");
+  wrap.innerHTML = "";
+  cats.forEach(c=>{
+    const b = document.createElement("button");
+    b.className = "chip" + (state.status===c.key ? " on":"");
+    b.textContent = c.label;
+    b.onclick = ()=>{ state.status=c.key; state.page=1; render(); };
+    wrap.appendChild(b);
+  });
+  const hb = document.createElement("button");
+  hb.className = "chip hlchip" + (state.hlOnly ? " on":"");
+  hb.textContent = "★ 하이라이트만";
+  hb.onclick = ()=>{ state.hlOnly = !state.hlOnly; state.page=1; render(); };
+  wrap.appendChild(hb);
+}
+
+function card(d){
+  const isDone = done.has(d.id);
+  const isHl = hl.has(d.id);
+  const div = document.createElement("div");
+  div.className = "card" + (isDone?" done":"") + (isHl?" hl":"");
+  div.innerHTML = `
+    <div class="rank">#${d.id}</div>
+    <div class="part-tag">${d.part}</div><br>
+    <div><span class="kr">${d.kr}</span><span class="ro">${d.ro}</span></div>
+    <div class="mean">${d.mean}</div>
+    ${d.attach ? `<div class="attach">붙는 방식: ${d.attach}</div>` : ""}
+    <div class="ex">예시: ${d.ex}</div>
+    ${d.confuse ? `<div class="confuse">⚠ 헷갈림 포인트: ${d.confuse}</div>` : ""}
+    <div class="metarow">
+      ${d.scene ? `<span class="meta">📍 ${d.scene}</span>` : ""}
+      ${d.tone ? `<span class="meta">🗣 ${d.tone}</span>` : ""}
+      ${d.level ? `<span class="meta level">${d.level}</span>` : ""}
+    </div>
+    <div class="btnrow">
+      <button class="abtn ${isDone?'done-on':''}" data-act="done">${isDone?'✓ 암기완료':'암기완료'}</button>
+      <button class="abtn ${isHl?'hl-on':''}" data-act="hl">${isHl?'★ 하이라이트':'☆ 하이라이트'}</button>
+    </div>`;
+  div.querySelector('[data-act="done"]').onclick = ()=>{
+    if(done.has(d.id)) done.delete(d.id); else done.add(d.id);
+    saveDone(); render();
+  };
+  div.querySelector('[data-act="hl"]').onclick = ()=>{
+    if(hl.has(d.id)) hl.delete(d.id); else hl.add(d.id);
+    saveHl(); render();
+  };
+  return div;
+}
+
+function render(){
+  buildPartFilters();
+  buildStatusFilters();
+  const hits = DATA.filter(matches);
+  const totalPages = Math.max(1, Math.ceil(hits.length / PAGE_SIZE));
+  if(state.page > totalPages) state.page = totalPages;
+  const start = (state.page-1)*PAGE_SIZE;
+  const pageItems = hits.slice(start, start+PAGE_SIZE);
+
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  document.getElementById("emptyMsg").hidden = pageItems.length !== 0;
+  pageItems.forEach(d => grid.appendChild(card(d)));
+
+  const doneCount = DATA.filter(d=>done.has(d.id)).length;
+  const pct = DATA.length ? Math.round(doneCount/DATA.length*100) : 0;
+  document.getElementById("progText").textContent = `${doneCount}/${DATA.length} (${pct}%)`;
+  document.getElementById("progFill").style.width = pct + "%";
+  document.getElementById("hlCount").textContent = `하이라이트 ${hl.size}`;
+  document.getElementById("totalLabel").textContent = DATA.length + "개";
+
+  const pager = document.getElementById("pager");
+  pager.innerHTML = "";
+  if(totalPages > 1){
+    const mk = (label, page, disabled, on) => {
+      const b = document.createElement("button");
+      b.className = "pgbtn" + (on?" on":"");
+      b.textContent = label; b.disabled = !!disabled;
+      b.onclick = ()=>{ state.page = page; render(); window.scrollTo(0,0); };
+      return b;
+    };
+    pager.appendChild(mk("‹ 이전", state.page-1, state.page<=1));
+    const info = document.createElement("span");
+    info.id = "pageInfo";
+    info.textContent = `${state.page} / ${totalPages} 페이지  (총 ${hits.length}개)`;
+    pager.appendChild(info);
+    pager.appendChild(mk("다음 ›", state.page+1, state.page>=totalPages));
+  }
+}
+
+document.getElementById("q").addEventListener("input", e=>{
+  state.q = e.target.value.trim(); state.page = 1; render();
+});
+document.getElementById("resetBtn").onclick = ()=>{
+  if(confirm("암기완료·하이라이트 기록을 전부 초기화할까요?")){
+    done = new Set(); hl = new Set(); saveDone(); saveHl(); render();
+  }
+};
+document.getElementById("exportBtn").onclick = ()=>{
+  const payload = JSON.stringify({done:[...done], hl:[...hl], savedAt:new Date().toISOString()});
+  const blob = new Blob([payload], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "grammar_progress_backup.json";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+document.getElementById("importBtn").onclick = ()=>{
+  document.getElementById("importFile").click();
+};
+document.getElementById("importFile").addEventListener("change", (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev)=>{
+    try{
+      const obj = JSON.parse(ev.target.result);
+      const newDone = new Set(obj.done||[]);
+      const newHl = new Set(obj.hl||[]);
+      if(confirm(`백업 파일에서 암기완료 ${newDone.size}개, 하이라이트 ${newHl.size}개를 불러옵니다. 현재 기록을 덮어쓸까요?`)){
+        done = newDone; hl = newHl; saveDone(); saveHl(); render();
+        alert("복원 완료!");
+      }
+    }catch(err){
+      alert("백업 파일을 읽지 못했습니다. 올바른 백업 파일인지 확인해주세요.");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+render();
+</script>
+</body></html>
